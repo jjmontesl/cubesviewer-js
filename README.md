@@ -17,6 +17,30 @@ Download
 
 Please visit the [CubesViewer main project page](http://www.cubesviewer.com/) for download information.
 
+Installation and running
+------------------------
+
+### Windows 10
+
+In order to run CubesViewer Studio Server, you have to run the following steps:
+
+Prepare environment (this has to be done once):
+* Download (see above) CubesViewer Server and unpack into a directory
+(referred to as "server root directory" further on)
+* run `pip install virtualenvwrapper-win`
+* in a "server root directory", run `mkvirtualenv cubes-server -a .cvapp -r requirements.txt -p <path to Python 2.x executable>`
+* cd to `cvapp` folder
+* run `start %USERPROFILE%\Envs\cubes-server\Scripts\activate.bat`
+(new command window will be launched with an activated virtualenv environment)
+* run `python manage.py migrate` (this will apply the migrations)
+* run `python manage.py createsuperuser` and provide username and password
+
+Run the server:
+* (activate the environment - see above)
+* run `python manage.py runserver`
+* make sure you have [Cubes Server](http://databrewery.org/cubes.html) up and running
+* open `http://localhost:8000/` in your browser
+* in order to persist views, after you have a view configured, click `Panel -> Save` off the view menu
 
 Requirements
 ------------
